@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Health Medical Centre | Kilimani's Premier Wellness Hub</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-green: #2d6a4f;
+            --light-green: #d8f3dc;
+            --accent-red: #d90429;
+            --white: #ffffff;
+            --text-dark: #1b4332;
+            --gradient-bg: linear-gradient(135deg, #ffffff 0%, #e9f5db 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: var(--white); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* --- 1. Navigation --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(255, 255, 255, 0.95);
+            position: fixed; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--primary-green); }
+        .logo span { color: var(--accent-red); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-red); }
+
+        /* --- 2. Hero Section --- */
+        .hero {
+            height: 100vh; background: var(--gradient-bg);
+            display: flex; align-items: center; padding: 0 8%; padding-top: 80px;
+            gap: 40px; /* Space between text and image container */
+        }
+        .hero-content { flex: 1.2; animation: fadeInUp 1s ease; }
+        
+        /* New Hero Image Container */
+        .hero-image-container { 
+            flex: 0.8; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            background: transparent; /* No bg */
+            border: none; /* No border */
+        }
+        .hero-image-container img { 
+            max-width: 100%; 
+            height: auto; 
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); /* Optional: adds depth to a transparent PNG */
+        }
+
+        .hero-content h1 { font-size: 3.5rem; color: var(--primary-green); line-height: 1.2; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; }
+        .cta-btn {
+            background: var(--accent-red); color: white; padding: 15px 35px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            transition: transform 0.3s ease; display: inline-block;
+        }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(217, 4, 41, 0.4); }
+
+        /* --- 3. Stats Section --- */
+        .stats { display: flex; justify-content: space-around; padding: 60px 8%; background: var(--primary-green); color: white; }
+        .stat-item { text-align: center; }
+        .stat-item h2 { font-size: 2.5rem; }
+
+        /* --- 4. Services --- */
+        .services { padding: 80px 8%; background: white; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card { 
+            padding: 40px; border-radius: 20px; background: var(--white); 
+            border: 1px solid #eee; transition: 0.4s; cursor: pointer;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary-green); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card i { font-size: 2.5rem; color: var(--accent-red); margin-bottom: 20px; }
+
+        /* --- 5. About (The Intersection) --- */
+        .about { padding: 80px 8%; display: flex; align-items: center; gap: 50px; background: var(--gradient-bg); }
+        .about-text { flex: 1; }
+        .about-img { flex: 1; background: #ccc; height: 400px; border-radius: 30px; position: relative; overflow: hidden; }
+
+        /* --- 6. Reviews Section --- */
+        .reviews { padding: 80px 8%; text-align: center; }
+        .rating-box { color: #ffb703; font-size: 1.5rem; margin-bottom: 10px; }
+
+        /* --- 7. Contact/Find Us --- */
+        .contact { padding: 80px 8%; background: var(--white); display: flex; gap: 50px; }
+        .info-box { flex: 1; }
+        .contact-link { display: block; margin: 15px 0; font-size: 1.2rem; color: var(--primary-green); text-decoration: none; }
+
+        /* --- 8. Footer --- */
+        footer { background: var(--text-dark); color: white; padding: 50px 8% 20px; text-align: center; }
+        .footer-line { border-top: 1px solid #2d6a4f; margin-top: 40px; padding-top: 20px; font-size: 0.9rem; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Adjustments for Hero Image */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; height: auto; padding-bottom: 50px; }
+            .hero-image-container { order: -1; margin-top: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ONE<span>HEALTH</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="tel:0745101010" class="cta-btn" style="padding: 10px 20px;">Emergency Call</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Expert Medical Care <br>In The Heart of Kilimani</h1>
+            <p>From world-class fitness facilities to specialized hospital care, One Health Medical Centre is your all-in-one destination for a healthier life in Nairobi.</p>
+            <a href="https://wa.me/254745101010" class="cta-btn">Book an Appointment</a>
+        </div>
+        <div class="hero-image-container">
+            <img src="YOUR_TRANSPARENT_IMAGE.png" alt="Featured Medical Professional" onerror="this.style.display='none'">
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item"><h2>24/7</h2><p>Medical Support</p></div>
+        <div class="stat-item"><h2>20+</h2><p>Positive Reviews</p></div>
+        <div class="stat-item"><h2>5★</h2><p>Care Quality</p></div>
+        <div class="stat-item"><h2>100%</h2><p>Patient Focused</p></div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Our Comprehensive Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-hospital"></i>
+                <h3>General Hospital</h3>
+                <p>Advanced diagnostic and treatment facilities available around the clock.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Fitness Center</h3>
+                <p>Fully equipped gym and fitness studios to keep your body in peak condition.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Medical Checkups</h3>
+                <p>Preventative screenings and personalized health consultations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <div style="background: var(--primary-green); height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                <p>[Professional Image Placeholder]</p>
+            </div>
+        </div>
+        <div class="about-text">
+            <h2>Why Choose One Health?</h2>
+            <p>Located in Dagoretti North, we bridge the gap between fitness and clinical medicine. We believe that health is a holistic journey, which is why we offer both hospital services and gym facilities under one roof.</p>
+            <br>
+            <ul style="list-style: none;">
+                <li><i class="fas fa-check-circle" style="color: var(--accent-red);"></i> Open until 11:59 PM</li>
+                <li><i class="fas fa-check-circle" style="color: var(--accent-red);"></i> Central Kilimani Location</li>
+                <li><i class="fas fa-check-circle" style="color: var(--accent-red);"></i> Expert Medical Practitioners</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>What Our Patients Say</h2>
+        <div class="rating-box">★★★★★</div>
+        <p>"Trusted by 20+ verified patients in Nairobi County for excellence in care and fitness."</p>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="info-box">
+            <h2>Visit Us Today</h2>
+            <p>Kilimani, Dagoretti North, Nairobi, Kenya</p>
+            <a href="mailto:info@onehealth.co.ke" class="contact-link"><i class="fas fa-envelope"></i> info@onehealth.co.ke</a>
+            <a href="tel:0745101010" class="contact-link"><i class="fas fa-phone"></i> 0745 101010</a>
+        </div>
+        <div style="flex: 1; background: #f0f0f0; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+            <p>[Interactive Google Map Placeholder]</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo" style="color: white;">ONE<span>HEALTH</span></div>
+        <p style="margin-top: 20px;">Providing excellence in health and fitness to the Nairobi community.</p>
+        <div class="footer-line">
+            &copy; 2026 One Health Medical Centre. Designed to Save Lives.
+        </div>
+    </footer>
+
+</body>
+</html>
